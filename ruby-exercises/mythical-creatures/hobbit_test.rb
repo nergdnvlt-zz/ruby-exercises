@@ -2,6 +2,7 @@ gem 'minitest', '~> 5.2'
 require 'minitest/autorun'
 require 'minitest/pride'
 require_relative 'hobbit'
+require 'pry'
 
 class HobbitTest < Minitest::Test
   def test_it_has_a_name
@@ -54,24 +55,31 @@ class HobbitTest < Minitest::Test
   end
 
   def test_is_old_at_age_of_101
-    skip
     # create a hobbit
+    hobbit = Hobbit.new("Odin")
     # have hobbit age 101 years
+    101.times do
+      hobbit.celebrate_birthday
+    end
     # check that hobbit.old? returns true
+    assert_equal true, hobbit.old?
   end
 
   def test_hobbit_has_the_ring_if_its_name_is_frodo
-    skip
     # create a hobbit named Frodo
+    hobbit1 = Hobbit.new('Frodo')
     # create a second hobbit named Sam
+    hobbit2 = Hobbit.new('Sam')
     # check that .has_ring? for Frodo returns true
+    assert hobbit1.has_ring?
     # check that .has_ring? for Sam returns false
+    refute hobbit2.has_ring?
   end
 
   def test_hobbits_are_short
-    skip
-    # create a hobbit
+    hobbit = Hobbit.new("Odin")
     # check that .is_short? returns true
+    assert hobbit.is_short?
   end
 
 end

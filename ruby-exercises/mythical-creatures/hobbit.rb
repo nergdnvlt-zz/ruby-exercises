@@ -8,6 +8,7 @@ class Hobbit
     @disposition    = disposition
     @age            = age
     @adult          = adult
+    @old            = false
   end
 
   def celebrate_birthday
@@ -20,6 +21,24 @@ class Hobbit
     else
       @adult = true
     end
+  end
+
+  def old?
+    if @age > 100 then @old = true end
+    #   @old = true
+    # end
+  end
+
+  def has_ring?
+    if @name == "Frodo"
+      return true
+    else
+      return false
+    end
+  end
+
+  def is_short?
+    return true
   end
 
 end
